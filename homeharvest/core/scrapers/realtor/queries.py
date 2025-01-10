@@ -123,7 +123,18 @@ _SEARCH_HOMES_DATA_BASE = """{
 
 HOMES_DATA = """%s
                 nearbySchools: nearby_schools(radius: 5.0, limit_per_level: 3) {
-                            __typename schools { district { __typename id name } }
+                            __typename schools { 
+                                district { __typename name }
+                                name
+                                rating
+                                grades
+                                education_levels
+                                funding_type
+                                student_count
+                                student_teacher_ratio
+                                review_count
+                                assigned
+                              }
                         }
                 taxHistory: tax_history { __typename tax year assessment { __typename building land total } }
                 estimates {

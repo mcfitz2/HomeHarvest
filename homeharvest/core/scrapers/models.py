@@ -142,6 +142,15 @@ class Advertisers:
     builder: Builder | None = None
     office: Office | None = None
 
+@dataclass
+class School:
+   district: str
+   education_levels: list[str]
+   funding_type: str
+   grades: list[str]
+   name: str
+   rating: int
+   student_count: int
 
 @dataclass
 class Property:
@@ -173,7 +182,7 @@ class Property:
     neighborhoods: Optional[str] = None
     county: Optional[str] = None
     fips_code: Optional[str] = None
-    nearby_schools: list[str] = None
+    nearby_schools: list[School] = None
     assessed_value: int | None = None
     estimated_value: int | None = None
     tax: int | None = None

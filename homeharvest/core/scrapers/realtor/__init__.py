@@ -481,8 +481,9 @@ class RealtorScraper(Scraper):
         schools = self.get_key(result, ["nearbySchools", "schools"])
         assessed_value = self.get_key(result, ["taxHistory", 0, "assessment", "total"])
         tax_history = self.get_key(result, ["taxHistory"])
-
-        schools = [school["district"]["name"] for school in schools if school["district"].get("name")]
+        
+        for i in range(len(schools)):
+            schools[i]['district'] = schools[i]['district']['name']
 
         # Process tax history
         latest_tax = None
